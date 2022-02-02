@@ -14,15 +14,48 @@ namespace Mission4.Models
         }
 
         public DbSet<MovieResponse> responses { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
+            mb.Entity<Category>().HasData(
+                new Category
+                {
+                    CategoryID = 1,
+                    CategoryName = "Sci-Fi"
+                },
+                new Category
+                {
+                    CategoryID = 2,
+                    CategoryName = "Sports"
+                },
+                new Category
+                {
+                    CategoryID = 4,
+                    CategoryName = "Drama"
+                },
+                new Category
+                {
+                    CategoryID = 5,
+                    CategoryName = "Documentary"
+                },
+                new Category
+                {
+                    CategoryID = 3,
+                    CategoryName = "Comedy"
+                },
+                new Category
+                {
+                    CategoryID = 6,
+                    CategoryName = "Family"
+                });
+
             mb.Entity<MovieResponse>().HasData(
 
                 new MovieResponse
                 {
                     MovieId = 1,
-                    Category = "Sci-Fi",
+                    CategoryID = 1,
                     Title = "Dune",
                     Director = "Denis Villaneuve",
                     Year = 2021,
@@ -34,7 +67,7 @@ namespace Mission4.Models
                 new MovieResponse
                 {
                     MovieId = 2,
-                    Category = "Sports",
+                    CategoryID = 2,
                     Title = "Moneyball",
                     Director = "Bennett Miller",
                     Year = 2011,
@@ -46,7 +79,7 @@ namespace Mission4.Models
                 new MovieResponse
                 {
                     MovieId = 3,
-                    Category = "Comedy", 
+                    CategoryID = 3, 
                     Title = "The Other Guys",
                     Director = "Adam McKay",
                     Year = 2010,

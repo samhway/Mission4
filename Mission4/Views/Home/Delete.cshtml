@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Delete";
+}
+
+@model Mission4.Models.MovieResponse
+
+<h2>Are you sure you want to delete @Model.Title from the collection?</h2>
+
+<form method="Post" asp-action="Delete">
+
+
+    <button type="submit">Delete</button>
+    <button asp-action="Collection" class="btn-primary">Cancel</button>
+
+    <input type="hidden" asp-for="MovieId" />
+</form>
